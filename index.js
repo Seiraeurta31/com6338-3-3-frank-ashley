@@ -1,7 +1,5 @@
-var correctAnswers = 0
 var userResponse = true
 var finalScore = 0
-var scoreAvg = 0
 
 var question = {
     question: "statement",
@@ -40,6 +38,10 @@ var questionsArr = [
 
 
 function runQuiz () {
+    
+    var questionCount = 0
+    var correctAnswers = 0
+
     for (let i = 0; i <questionsArr.length; i++) {
 
         userResponse = confirm(questionsArr[i].question)
@@ -51,11 +53,11 @@ function runQuiz () {
         else if(questionsArr[i].answer === false && userResponse === false){
             correctAnswers++
         }
+        questionCount ++
     }
 
-
-    finalScore = Math.round((correctAnswers/questionsArr.length)*100)
-    alert('Final Score: ' + finalScore + '%')
+    finalScore = Math.round((correctAnswers/questionCount)*100)
+    alert(finalScore + '%')
 
 }
 
