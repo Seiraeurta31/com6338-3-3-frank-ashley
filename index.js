@@ -48,23 +48,16 @@ function runQuiz () {
         
         if(questionsArr[i].answer === true && answer === true){
             score = (score + 1)
-            console.log(score)
         }
         else if(questionsArr[i].answer === false && answer === false){
             score = (score + 1)
-            console.log(score)
-        }
-        else{
-            console.log(score)
-        }
-    }
 
+        }
+
+    }
 
     scoreAvg = Math.round((score/questionsArr.length)*100)
     alert('Your final score is ' + Math.floor(scoreAvg) + '%')
-
-
-
 }
 
  
