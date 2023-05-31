@@ -1,5 +1,6 @@
 var score = 0
-var answer = true
+var userResponse = true
+var finalScore = 0
 var scoreAvg = 0
 
 var question = {
@@ -40,24 +41,21 @@ var questionsArr = [
 
 function runQuiz () {
     for (let i = 0; i <questionsArr.length; i++) {
-        answer = confirm(questionsArr[i].question)
-        console.log("question: " + questionsArr[i].question)
-        console.log("answer: " + questionsArr[i].answer)
-        console.log("response: " + answer)
 
-        
-        if(questionsArr[i].answer === true && answer === true){
-            score = (score + 1)
-        }
-        else if(questionsArr[i].answer === false && answer === false){
-            score = (score + 1)
-
+        userResponse = confirm(questionsArr[i].question)
+        if(questionsArr[i].answer === true && userResponse === true){
+            score++
         }
 
+        else if(questionsArr[i].answer === false && userResponse === false){
+            score++
+        }
     }
 
-    scoreAvg = Math.round((score/questionsArr.length)*100)
-    alert('Your final score is ' + Math.floor(scoreAvg) + '%')
+
+    finalScore = Math.round((score/questionsArr.length)*100)
+    alert('Final Score: ' + finalScore + '%')
+
 }
 
  
